@@ -1,0 +1,16 @@
+FROM node:alpine
+
+WORKDIR /app
+
+# configure deps first
+COPY ./package.json ./
+RUN npm install
+
+# then copy source code
+COPY . .
+#COPY ./package.json ./
+#COPY ./package-lock.json ./
+#COPY ./public ./public
+#COPY ./src ./src
+
+CMD ["npm", "start"]
